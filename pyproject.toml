@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "is665-assignment7-regression-lab"
+version = "1.0.0"
+description = "Professional Streamlit application for IS 665 Assignment 7 regression analysis."
+readme = "README.md"
+requires-python = ">=3.11,<3.16"
+dependencies = [
+  "streamlit==1.67.0",
+  "pandas==3.1.1",
+  "numpy==2.4.6; python_version == '3.11'",
+  "numpy==2.5.4; python_version >= '3.12'",
+  "matplotlib==3.11.2",
+  "statsmodels==0.15.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.3,<10",
+  "pytest-cov>=6,<8",
+  "ruff>=0.14,<0.15",
+  "mypy>=1.15,<3",
+  "pandas-stubs>=2.3",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 110
+
+[tool.mypy]
+python_version = "3.15"
+packages = ["regression_lab"]
+warn_unused_configs = true
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
