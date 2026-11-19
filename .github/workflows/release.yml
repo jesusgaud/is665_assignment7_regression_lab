@@ -23,6 +23,6 @@ jobs:
         run: |
           zip -r is665_assignment7_regression_lab_${{ github.ref_name }}.zip . \
             -x '.git/*' '.venv/*' '__pycache__/*' '.pytest_cache/*' 'results/*' 'data/insurance.csv'
-      - uses: softprops/action-gh-release@v2
+      - uses: softprops/action-gh-release@v3
         with:
           files: is665_assignment7_regression_lab_${{ github.ref_name }}.zip
